@@ -42,6 +42,7 @@ Find the file `index.js` and complete the tasks.
 Edit the `ReadMe` file with your answers.
 
 1. In your own words, define closure (1-2 sentences).
+  A closure is when a function has acceses to data outside of its own scope and into its parent.
 2. Study the following code, then answer the questions below.
 
 ```js

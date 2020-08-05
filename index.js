@@ -31,7 +31,8 @@ function processFirstItem(stringList, callback) {
  * 2. Which of the two uses a closure? How can you tell?
  *  counter2. because its accessing data outsied of its function.
  * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better? 
- *    
+ *    counter1 would be perferable when you want to reset the count each time you invoke the function.
+ *    counter2 would be perferable when you want to keep counting up every time you invoke the funtion.
 */
 
 // counter1 code
@@ -56,15 +57,24 @@ function counter2() {
 
 Write a function called `inning` that returns a random number of points that a team scored in an inning. This should be a whole number between 0 and 2. */
 
-function inning(/*Code Here*/){
-
-    /*Code Here*/
-
+function inning(){
+  let teamPoints = 0;
+  return function (){
+    let points = Math.floor(Math.random() * 3);
+    return teamPoints = points;
+  }
 }
+let newInning = inning();
+console.log(newInning());
+console.log(newInning());
+console.log(newInning());
+console.log(newInning());
+console.log(newInning());
 
 /* Task 3: finalScore()
 
-Write a higher order function called `finalScore` that accepts the callback function `inning` (from above) and a number of innings and and returns the final score of the game in the form of an object.
+Write a higher order function called `finalScore` that accepts the callback function `inning` (from above) 
+and a number of innings and and returns the final score of the game in the form of an object.
 
 For example, 
 

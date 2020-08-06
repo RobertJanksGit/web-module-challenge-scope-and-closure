@@ -29,10 +29,9 @@ function processFirstItem(stringList, callback) {
  * 1. What is the difference between counter1 and counter2?
  *    counter1 will reset count every time you invoke the function. Counter2 will keep adding to count.
  * 2. Which of the two uses a closure? How can you tell?
- *  counter2. because its accessing data outsied of its function.
+ *  counter1. because has a function inside a function.
  * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better? 
- *    counter1 would be perferable when you want to reset the count each time you invoke the function.
- *    counter2 would be perferable when you want to keep counting up every time you invoke the funtion.
+ *   
 */
 
 // counter1 code
@@ -110,9 +109,19 @@ and returns the score at each point in the game, like so:
 9th inning: awayTeam - homeTeam
 Final Score: awayTeam - homeTeam */
 
-
-function scoreboard(getInningScore, inning, numOfInnings) {
-  
+function getInningScore(inning) {
+  return inning();
 }
 
-
+function scoreboard(getInningScore, inning, numOfInnings) {
+  let score = {home: 0, away: 0};
+  for (let i = 0; i < numOfInnings; i++) {
+    let awayScore = getInningScore(inning);
+    let homeScore = getInningScore(inning);
+    score.home += homeScore;
+    score.away += awayScore;
+    console.log(`inning ${i+1}: ${awayScore} - ${homeScore}`)
+  }
+  console.log(`Final Score: ${score.away} - ${score.home}`)
+}
+scoreboard(getInningScore, inning, 9)

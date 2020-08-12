@@ -42,6 +42,7 @@ Find the file `index.js` and complete the tasks.
 Edit the `ReadMe` file with your answers.
 
 1. In your own words, define closure (1-2 sentences).
+  A closure is when a function has acceses to data outside of its own scope and into its parent.
 2. Study the following code, then answer the questions below.
 
 ```js
@@ -63,7 +64,9 @@ dansRoll();
 ```
 
 a. Where is closure used in this code? How can you tell?
+  closure is used in the arguments "Dan" and "Zoe". the function calls on the parameter "name" that is linking to the arguments outside of the function.
 b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
+  the string "Dan rolled a" will remain the same. What he rolled will be a random number between 0 and 6.
 c. What is the lexical scope of `newRoll`? 
 
 ### Task 2c - Exit Ticket
